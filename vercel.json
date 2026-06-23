@@ -1,4 +1,10 @@
 {
   "version": 2,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/subscription/:path*",
+      "destination": "https://api.circlechess.com/subscription/:path*"
+    }
+  ]
 }

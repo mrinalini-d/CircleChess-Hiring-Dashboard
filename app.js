@@ -9,7 +9,7 @@
 
 const API_BASE_URL = (typeof location !== 'undefined' && (location.hostname === '127.0.0.1' || location.hostname === 'localhost'))
   ? 'http://127.0.0.1:3001'
-  : CONFIG.API_BASE_URL;
+  : '';
 const NOCOBASE_API_KEY = CONFIG.NOCOBASE_API_KEY;
 
 // ---------------------------------------------------------

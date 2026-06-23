@@ -2,9 +2,9 @@
   "version": 2,
   "cleanUrls": true,
   "rewrites": [
-    {
-      "source": "/subscription/:path*",
-      "destination": "https://api.circlechess.com/subscription/:path*"
-    }
+    { "source": "/subscription/v1/coach-search/", "destination": "/api/coach-search" },
+    { "source": "/subscription/v1/coach-search",  "destination": "/api/coach-search" },
+    { "source": "/subscription/v1/coach-weekly-slots/", "destination": "/api/coach-weekly-slots" },
+    { "source": "/subscription/v1/coach-weekly-slots",  "destination": "/api/coach-weekly-slots" }
   ]
 }

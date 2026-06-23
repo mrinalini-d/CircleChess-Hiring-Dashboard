@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CircleChess Hiring Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-shell">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">C</div>
+      <span class="logo-text">Circle<strong>Chess</strong></span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="#" class="nav-item active" data-page="weekly-slots">
+        <span class="nav-icon">📅</span> Weekly Slots
+      </a>
+      <a href="#" class="nav-item disabled" title="Coming soon">
+        <span class="nav-icon">👤</span> Coaches
+      </a>
+      <a href="#" class="nav-item disabled" title="Coming soon">
+        <span class="nav-icon">📄</span> Applications
+      </a>
+      <a href="#" class="nav-item disabled" title="Coming soon">
+        <span class="nav-icon">🗣️</span> Interviews
+      </a>
+      <a href="#" class="nav-item disabled" title="Coming soon">
+        <span class="nav-icon">📊</span> Reports
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="help-card">
+        <p class="help-title">Need Help?</p>
+        <p class="help-sub">Contact our support team</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="main-area">
+
+    <!-- Top header -->
+    <header class="topbar">
+      <div>
+        <h1>Weekly Slots Overview</h1>
+        <p class="subtitle">Live coach availability — see which slots are filled and which are open, in real time.</p>
+      </div>
+      <div class="topbar-right">
+        <div class="admin-chip">
+          <div class="admin-avatar">A</div>
+          <div>
+            <div class="admin-name">Admin</div>
+            <div class="admin-role">Hiring Manager</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Controls row -->
+    <section class="controls-row">
+      <div class="week-nav panel">
+        <button id="prevWeekBtn" class="icon-btn" title="Previous week">&#8592;</button>
+        <span id="weekRangeLabel" class="week-range">Loading…</span>
+        <button id="nextWeekBtn" class="icon-btn" title="Next week">&#8594;</button>
+      </div>
+
+      <div class="legend panel">
+        <span class="legend-item"><span class="dot peak"></span> Peak Hiring Hours</span>
+        <span class="legend-item"><span class="dot filled"></span> Coach Available</span>
+        <span class="legend-item"><span class="dot open"></span> Coach Required</span>
+      </div>
+
+      <button id="refreshBtn" class="btn btn-primary">
+        <span id="refreshIcon">&#8635;</span> Refresh
+      </button>
+    </section>
+
+    <div id="loadingBar" class="loading-bar"></div>
+
+    <!-- Weekly grid -->
+    <section class="panel grid-panel">
+      <div class="table-scroll">
+        <table id="weeklyTable">
+          <thead id="weeklyHead"></thead>
+          <tbody id="weeklyBody">
+            <tr><td class="empty-state">Loading weekly slots…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Stat cards -->
+    <section class="stats-row">
+      <div class="panel stat-card">
+        <div class="stat-icon total">👥</div>
+        <div>
+          <p class="stat-label">Total Slots</p>
+          <p id="statTotal" class="stat-value">0</p>
+        </div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-icon filled">✅</div>
+        <div>
+          <p class="stat-label">Filled Slots</p>
+          <p id="statFilled" class="stat-value">0 <span id="statFilledPct" class="stat-pct"></span></p>
+        </div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-icon open">⭕</div>
+        <div>
+          <p class="stat-label">Open Slots</p>
+          <p id="statOpen" class="stat-value">0 <span id="statOpenPct" class="stat-pct"></span></p>
+        </div>
+      </div>
+      <div class="panel stat-card">
+        <div class="stat-icon peak">🔥</div>
+        <div>
+          <p class="stat-label">Peak Open Slots</p>
+          <p id="statPeakOpen" class="stat-value">0</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Slot detail modal -->
+<div id="slotModalOverlay" class="modal-overlay" style="display:none;">
+  <div class="modal-panel">
+    <div class="modal-header">
+      <h3 id="slotModalTitle">Slot detail</h3>
+      <button id="slotModalClose" class="icon-btn">&times;</button>
+    </div>
+    <div id="slotModalBody" class="modal-body">
+      <div class="empty-state">Loading…</div>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
